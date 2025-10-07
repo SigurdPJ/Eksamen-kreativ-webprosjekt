@@ -1,0 +1,603 @@
+
+/*CSS kodet av Sigurd Jongers*/
+
+body{
+    margin: 0%;
+    overflow: hidden;
+    background-color: blue;
+    color: whitesmoke;
+    font-family: sans-serif;
+}
+
+#container{
+    position: relative;
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/*----------------------------------------------------------------------------------------------------------------------*/
+
+/*kode og styling for åpningssiden*/
+
+#casino-img-container{
+    position: absolute;
+    width: 94%;
+    height:90%;
+    z-index: 888;
+    border: dashed rgb(255, 165, 0) 5px;
+
+    display: flex;
+    justify-content: center;
+
+    animation-name: remove-casino-img-container;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in-out;
+    animation-play-state: paused;
+}
+
+#casino-img{
+    object-fit: cover;
+    position: absolute;
+    width: 100%;
+    height:100%;
+}
+
+@keyframes remove-casino-img-container{
+    0%{
+        transform: scale(1);
+        opacity: 1;
+    }
+    50%{
+        transform: scale(1.2);
+        opacity: 0;
+    }
+    100%{
+        transform: translateX(100%);
+        opacity: 0;
+    }
+}
+
+#casino-sign-label{
+    position: absolute;
+    top:32%;
+    width:20%;
+    z-index: 999;
+}
+
+#casino-sign{
+    width:100%;
+    border: solid blue 5px;
+    border-radius: 20px;
+}
+
+#casino-sign:hover{
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+#entry-checkbox{
+    position: absolute;
+    right: 0%;
+    opacity: 0;
+    z-index: 999;
+}
+
+#entry-checkbox:checked ~ #casino-img-container{
+    animation-play-state: running;
+}
+
+#click-to-enter{
+    display: flex;
+    justify-content: center;
+}
+
+/*----------------------------------------------------------------------------------------------------------------------*/
+
+/*Kode og animasjon for hovedinnhold*/
+
+main{
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top:0%;
+    object-fit: cover;
+    background-image:url(images/floor2.jpg);/*kilde: https://www.filterforge.com/filters/2961.html*/
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    animation-name: show-main;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    animation-timing-function: linear;
+    animation-play-state: paused;
+}
+
+@keyframes show-main{
+    0%  {
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+#entry-checkbox:checked ~ main{
+    animation-play-state: running;
+    }
+
+#table{
+    position: absolute;
+    top:7%;
+    background-color:forestgreen;
+    width: 1100px;
+    height: 500px;
+    border: 15px solid rgb(66, 6, 6);
+    border-radius: 60px;
+    overflow: hidden;
+}
+
+/*----------------------------------------------------------------------------------------------------------------------*/
+
+/*Kode for pilene*/
+
+#button-background{
+    position: absolute;
+    bottom:0px;
+    background-color:darkred;
+    border-top: solid black 5px;
+    width: 100%;
+    height: 12%;
+    z-index: 900;
+    
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    justify-content: space-around;
+}
+
+.arrow{
+    width: 10%;
+    position: absolute;
+    bottom: 0;
+    z-index: 999;
+  }
+
+  .arrow:hover {
+    cursor: pointer;
+    transform: scale(1.15);
+  }
+
+#left-arrow {
+    left: 10%;
+  }
+
+  #right-arrow {
+    left: 80%;
+  }
+
+/*----------------------------------------------------------------------------------------------------------------------*/
+
+/*styling og funksjonalitet for #play-button*/
+
+#play-button{
+    position: absolute;
+    bottom: 1%;
+    width: 120px;
+    height: 70px;
+    background-color:green;
+    border: black solid 4px;
+    border-radius: 20px;
+    font-size: 180%;
+    font-weight: bold;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+}
+
+#play-button:hover{
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+#play-button:active{
+    background-color: rgb(0, 80, 0);
+}
+
+#play-checkbox{
+    opacity: 0;
+}
+
+#play-checkbox:checked ~ #chips1,
+#play-checkbox:checked ~ #chips2,
+#play-checkbox:checked ~ #chips3,
+#play-checkbox:checked ~ #inner-circle,
+#play-checkbox:checked ~ #roulette-ball,
+#play-checkbox:checked ~ #inner-circle-with-ball,
+#play-checkbox:checked ~ #reward-chips-container,
+#play-checkbox:checked ~ #winner-img{
+    animation-play-state: running;
+}
+
+#exit-button{
+    position: absolute;
+    bottom: 1%;
+    right: 2%;
+    width: 120px;
+    height: 70px;
+    background-color:red;
+    color: whitesmoke;
+    border: black solid 4px;
+    text-decoration:none;
+    border-radius: 20px;
+    font-size: 180%;
+    font-weight: bold;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+}
+
+#exit-button:hover{
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+#exit-button:active{
+    background-color: rgb(189, 2, 2);
+}
+
+#play-checkbox{
+    opacity: 0;
+}
+
+/*----------------------------------------------------------------------------------------------------------------------*/
+
+/*kode og animasjon for ruletthjulet*/
+
+#roulette-weel{
+    position: absolute;
+    left:4%;
+    top:12%;
+    height: 80%;
+}
+
+#inner-circle{
+    position: absolute;
+    left:10%;
+    top:25%;
+    height: 54%;
+
+    animation-name: spinn-inner-circle;
+    animation-delay: 3s;
+    animation-duration: 7s;
+    animation-timing-function: ease-out;
+    animation-play-state: running;
+    animation-fill-mode: forwards;
+    animation-play-state: paused;
+}
+
+@keyframes spinn-inner-circle {
+    0%{
+       transform:  rotate(0deg);
+    } 
+    100%{
+        transform:  rotate(2200deg);
+    } 
+}
+
+/*----------------------------------------------------------------------------------------------------------------------*/
+
+/*kode og animasjoner for rulettballen*/
+
+#roulette-ball{
+    position: absolute;
+    left:10%;
+    top:25%;
+    height: 54%;
+    z-index: 888;
+    opacity: 0;
+    
+    animation-name: show-ball, rotate-ball, move-ball, hide-ball;
+    animation-delay: 3s, 3s, 5.4s, 6s;
+    animation-duration: 1ms, 3s, 0.5s, 1ms;
+    animation-timing-function: linear, ease-out, ease-in-out, linear;
+    animation-fill-mode: forwards, forwards, forwards, forwards;
+    animation-play-state: paused, paused, paused, paused;
+}
+
+@keyframes show-ball{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+@keyframes rotate-ball{
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(-3200deg);
+    }
+}
+
+@keyframes move-ball{
+    0%{
+        left:10%;
+        top:25%;
+    }
+    100%{
+        left:10%;
+        top:37%;
+    }
+    
+}
+
+@keyframes hide-ball{
+    0%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+    }
+}
+
+#inner-circle-with-ball{
+    position: absolute;
+    left:10%;
+    top:25%;
+    height: 54%;
+    z-index: 888;
+    opacity: 0;
+
+    animation-name: show-inner-cirle-with-ball, spinn-inner-circle-with-ball;
+    animation-delay: 6s, 3s;
+    animation-duration: 1ms, 7s;
+    animation-timing-function: linear, ease-out;
+    animation-fill-mode: forwards, forwards;
+    animation-play-state: paused, paused;
+}
+
+@keyframes show-inner-cirle-with-ball{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+@keyframes spinn-inner-circle-with-ball{
+    0%{
+        transform:  rotate(0deg);
+    } 
+    100%{
+        transform:  rotate(2200deg);
+    }
+}
+
+/*----------------------------------------------------------------------------------------------------------------------*/
+
+/*kode og animasjoner for brettet og "chippene"*/
+
+#roulette-board{
+    border: solid white 4px;
+    border-radius: 34px;
+    position: absolute;
+    left: 44%;
+    top:15%;
+    height:70%;
+}
+
+.chips{
+    position: absolute;
+    height: 10%;
+    filter: brightness(1.1);
+
+    animation-duration: 2.5s;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+    animation-play-state: paused;
+}
+
+#chips1{
+    animation-name: chips1-move;
+}
+
+@keyframes chips1-move {
+    0%{
+        left:50%;
+        bottom:3%
+    }
+    
+    20%{
+        left:53%;
+        bottom:5%
+    }
+    70%{
+        left:53%;
+        bottom:48%
+    }
+    100%{
+        left:63%;
+        bottom:42%
+    }
+}
+
+#chips2{
+    animation-name: chips2-move;
+}
+
+@keyframes chips2-move {
+    0%{
+        left:55%;
+        bottom:3%
+    }
+    20%{
+        left:56%;
+        bottom:14%;
+    }
+    70%{
+        left:56%;
+        bottom:57%;
+    }
+    
+    100%{
+        left:59%;
+        bottom:61%;
+    }
+}
+
+#chips3{
+    position: absolute;
+    height: 10%;
+    filter: brightness(1.1);
+    animation-name: chips3-move, chips3-win;
+    animation-delay: 0s, 10s;
+    animation-duration: 2.5s, 1s;
+    animation-timing-function: ease-out, linear;
+    animation-fill-mode: forwards;
+    animation-play-state: paused;
+    
+}
+
+@keyframes chips3-move {
+    0%{
+        left:60%;
+        bottom:3%
+    }
+    
+    20%{
+        left:58%;
+        bottom:5%
+    }
+    70%{
+        left:58%;
+        bottom:48%
+    }
+    100%{
+        left:71%;
+        bottom:51%
+    }
+}
+
+@keyframes chips3-win {
+    0%{
+        transform: scale(1); 
+        filter: brightness(1);
+    }
+   
+    25%{
+        transform: scale(1.13); 
+        filter: brightness(1.2);
+    }
+    50%{
+        transform: scale(1);
+        filter: brightness(1);
+    }
+    75%{
+        transform: scale(1.13);   
+        filter: brightness(1.2); 
+    }
+    100%{
+        transform: scale(1);
+        filter: brightness(1.1);
+    }
+}
+
+/*----------------------------------------------------------------------------------------------------------------------*/
+
+/*Vinner animasjoner*/
+
+#winner-img{
+    position: absolute;
+    transform: translate(-50%,-50%);
+    top:35%;
+    left:33%;
+    z-index: 899;
+    opacity: 0;
+    width: 30%;
+
+    animation-name: show-win;
+    animation-delay: 11.5s;
+    animation-duration: 0.75s;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+    animation-play-state: paused;
+}
+
+@keyframes show-win{
+    0%{
+        opacity: 0;
+        transform: scale(1);
+    }
+    1%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 1;
+        transform: scale(3);
+    }
+}
+
+.reward-chips{
+    width: 7%;
+    filter: brightness(1.1);
+}
+
+#reward-chips-container{
+    position: absolute;
+    top:50%;
+    left:36%;
+    display: flex;
+    align-items: center;
+    opacity: 0;
+
+    animation-name: show-winner-chips;
+    animation-delay: 12.5s;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-play-state: paused;
+}
+
+@keyframes show-winner-chips{
+    0%{
+        opacity: 0;
+        top:50%;
+        left:36%;
+    }
+    1%{
+        opacity: 1;
+        top:50%;
+        left:36%;
+    }
+    100%{
+        opacity: 1;
+        top:87%;
+        left:36%;
+    }
+}
+
+/*----------------------------------------------------------------------------------------------------------------------*/
+
+/*
+verktøy jeg har brukt:
+
+https://new.express.adobe.com/tools/remove-background  (for å gjøre bilder om til png)
+https://pixlr.com/no/editor/ (for å lage #inner-circle-with-ball, #roulette-ball og "croppe" diverse bilder)
+https://imageresizer.com/resize/download/6563644766842bfcec3728ee (For å justere størrelsen på bilder)
+https://jigsaw.w3.org/css-validator/ (for å validere CSSen)
+*/
